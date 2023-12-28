@@ -7,7 +7,7 @@
     <title>ExeMES – российская Low-code MES система, базирующаяся на стандарте ISA-95</title>
     <link href="css/swiper-bundle.min.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="shortcut icon" href="img/favicon.ico">
 </head>
 
 <body class="page__body">
@@ -80,16 +80,15 @@
                             </div>
                             <ul class="partners__list">
                                 <li class="partners__list-item">
-                                    <a href="#" class="partners__list-link partners__list-link--p40">
+                                    <a href="https://kit-digital.ru/" target="_blank" class="partners__list-link partners__list-link--p40">
                                         <img src="img/partners/img-01.jpg" alt="ИТ">
                                         <span class="partners__list-icon"><i class="img-more"></i></span>
                                     </a>
                                 </li>
                                 <li class="partners__list-item">
-                                    <a href="#" class="partners__list-link">
+                                    <span class="partners__list-link">
                                         <span>Форк ИТ</span>
-                                        <span class="partners__list-icon"><i class="img-more"></i></span>
-                                    </a>
+                                    </span>
                                 </li>
                             </ul>
                         </li>
@@ -99,13 +98,13 @@
                             </div>
                             <ul class="partners__list">
                                 <li class="partners__list-item">
-                                    <a href="#" class="partners__list-link">
+                                    <a href="https://elma365.com/ru/" target="_blank" class="partners__list-link">
                                         <img src="img/partners/img-02.jpg" alt="ELMA 365">
                                         <span class="partners__list-icon"><i class="img-more"></i></span>
                                     </a>
                                 </li>
                                 <li class="partners__list-item">
-                                    <a href="#" class="partners__list-link">
+                                    <a href="https://www.konsom.ru/" target="_blank" class="partners__list-link">
                                         <img src="img/partners/img-03.jpg" alt="Консорм групп">
                                         <span class="partners__list-icon"><i class="img-more"></i></span>
                                     </a>
@@ -118,7 +117,7 @@
                             </div>
                             <ul class="partners__list">
                                 <li class="partners__list-item">
-                                    <a href="#" class="partners__list-link">
+                                    <a href="https://kru.ru/ru/" target="_blank" class="partners__list-link">
                                         <img src="img/partners/img-04.jpg" alt="Кузбассразрезуголь">
                                         <span class="partners__list-icon"><i class="img-more"></i></span>
                                     </a>
@@ -147,41 +146,47 @@
                             </li>
                         </ul>
                     </div>
-                    <form class="form contact-us__form">
+                    <form action="#" class="form contact-us__form">
                         <label class="form__label">
                             <span class="form__label-text">фио</span>
-                            <input type="text" class="form__input">
+                            <input type="text" name="Имя" class="form__input input-name">
                         </label>
                         <label class="form__label">
-                            <span class="form__label-text">должность</span>
-                            <input type="text" class="form__input">
+                            <span class="form__label-text">Должность</span>
+                            <input type="text" name="Должность" class="form__input">
                         </label>
                         <label class="form__label">
                             <span class="form__label-text">Компания</span>
-                            <input type="text" class="form__input">
+                            <input type="text" name="Компания" class="form__input">
                         </label>
                         <label class="form__label">
                             <span class="form__label-text">Е-мейл</span>
-                            <input type="email" class="form__input">
+                            <input type="email" name="Е-мейл" class="form__input input-email">
                         </label>
                         <label class="form__label">
                             <span class="form__label-text">Телефон</span>
-                            <input type="tel" class="form__input">
+                            <input type="tel" name="Телефон" class="form__input input-tel">
                         </label>
                         <label class="form__label">
-                            <span class="form__label-text">сообщение</span>
-                            <textarea class="form__textarea"></textarea>
+                            <span class="form__label-text form__label-text--mb-10">сообщение</span>
+                            <textarea name="Cообщение" class="form__textarea"></textarea>
                         </label>
                         <div class="form__bottom">
                             <div class="form__box">
                                 <label class="checkbox form__checkbox">
-                                    <input type="checkbox" class="checkbox__input">
+                                    <input type="checkbox" class="checkbox__input input-checkbox" checked>
                                     <span class="checkbox__switch"></span>
                                 </label>
-                                <button type="button" class="btn-reset form__agree">Согласие на обработку персональных данных</button>
+                                <p class="form__agree">Согласие на
+                                    <a href="files/__personal.pdf" target="_blank">обработку персональных данных</a>
+                                </p>
                             </div>
-                            <button type="submit" class="btn form__btn">Отправить</button>
+                            <div class="form__bottom-btn">
+                                <button type="submit" class="btn form__btn">Отправить</button>
+                                <div class="form__btn-message">Сообщение отправлено!</div>
+                            </div>
                         </div>
+                        <div class="animation-form"></div>
                     </form>
                 </div>
             </section>
@@ -202,6 +207,8 @@
         </div>
     </div>
     <script type="text/javascript" src="js/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="js/just-validate.production.min.js"></script>
+    <script type="text/javascript" src="js/inputmask.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 
 </body>
