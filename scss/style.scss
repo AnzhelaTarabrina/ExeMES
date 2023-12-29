@@ -723,12 +723,12 @@ img {
 /* contact-us */
 .contact-us {
   padding-top: 80px;
-  padding-bottom: 100px;
+  padding-bottom: 70px;
   background-color: #5F95CB;
 
   @media (max-width: 992px) {
     padding-top: 60px;
-    padding-bottom: 80px;
+    padding-bottom: 50px;
   }
   @media (max-width: 650px) {
     padding-top: 50px;
@@ -792,14 +792,39 @@ img {
 
 /* form */
 .form {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.not-active{
+    &::after {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .animation-form {
+      animation: animationForm 2.5s linear infinite;
+    }
+  }
+
   .just-validate-error-label {
     content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNiAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTE1LjgxOTkgMTIuMDMxNkMxNi4zMzI2IDEyLjkwNjQgMTUuNjg5MSAxNCAxNC42NjUgMTRIMS4zMzQ4NEMwLjMwODgxMyAxNCAtMC4zMzE3OTggMTIuOTA0NyAwLjE3OTkyNSAxMi4wMzE2TDYuODQ1MDkgMC42NTU4NEM3LjM1ODA2IC0wLjIxOTQwNiA4LjY0Mjg3IC0wLjIxNzgyIDkuMTU0OTIgMC42NTU4NEwxNS44MTk5IDEyLjAzMTZaTTggOS42Nzk2OUM3LjI5NDMxIDkuNjc5NjkgNi43MjIyMyAxMC4yNDI4IDYuNzIyMjMgMTAuOTM3NUM2LjcyMjIzIDExLjYzMjIgNy4yOTQzMSAxMi4xOTUzIDggMTIuMTk1M0M4LjcwNTcgMTIuMTk1MyA5LjI3Nzc4IDExLjYzMjIgOS4yNzc3OCAxMC45Mzc1QzkuMjc3NzggMTAuMjQyOCA4LjcwNTcgOS42Nzk2OSA4IDkuNjc5NjlaTTYuNzg2ODcgNS4xNTg1MUw2Ljk5MjkyIDguODc3MjZDNy4wMDI1NiA5LjA1MTI3IDcuMTQ4NzMgOS4xODc1IDcuMzI1NzYgOS4xODc1SDguNjc0MjZDOC44NTEyOCA5LjE4NzUgOC45OTc0NSA5LjA1MTI3IDkuMDA3MDkgOC44NzcyNkw5LjIxMzE0IDUuMTU4NTFDOS4yMjM1NiA0Ljk3MDU1IDkuMDcxNTMgNC44MTI1IDguODgwMzEgNC44MTI1SDcuMTE5NjdDNi45Mjg0NSA0LjgxMjUgNi43NzY0NSA0Ljk3MDU1IDYuNzg2ODcgNS4xNTg1MVoiIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=");
-        position: absolute;
-        width: 16px;
-        height: 14px;
-        bottom: 10px;
-        right: 2px;
+    position: absolute;
+    width: 16px;
+    height: 14px;
+    bottom: 10px;
+    right: 2px;
   }
+
   &__label {
     display: block;
     position: relative;
@@ -875,6 +900,7 @@ img {
   }
   
   &__box {
+    position: relative;
     flex: 0 0 203px;
     display: flex;
     align-items: center;
@@ -913,7 +939,7 @@ img {
       font-weight: 500;
       line-height: 1.6;
       opacity: 0;
-      transition: opacity .2s ease 0.6s;
+      transition: opacity .2s ease;
       @media (max-width: 650px) {
         font-size: 15px;
       }
@@ -930,15 +956,24 @@ img {
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 50%;
+  width: 90%;
   height: 4px;
-  border-radius: 5px;
-  background-color: #fff;
+  border-radius: 3px;
   transform: translateX(-100%);
-  transition: transform .6s ease;
+  background-color: #fff;
+}
 
-  &--active {
-    transform: translateX(200%);
+@keyframes animationForm {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120%);
+    opacity: 0.2;
   }
 }
 

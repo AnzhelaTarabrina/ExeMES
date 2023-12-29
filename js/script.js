@@ -18,16 +18,16 @@ const validateForms = (selector, rules, afterSend) => {
         inputMask.mask(telSelector);
 
         for (let item of rules) {
-        if (item.tel) {
-            item.rules.push({
-            rule: 'function',
-            validator: function() {
-                const phone = telSelector.inputmask.unmaskedvalue();
-                return phone.length === 10;
-            },
-            errorMessage: item.telError
-            });
-        }
+            if (item.tel) {
+                item.rules.push({
+                rule: 'function',
+                validator: function() {
+                    const phone = telSelector.inputmask.unmaskedvalue();
+                    return phone.length === 10;
+                },
+                errorMessage: item.telError
+                });
+            }
         }
     }
 
@@ -40,6 +40,7 @@ const validateForms = (selector, rules, afterSend) => {
 
     validation.onSuccess((ev) => {
         let formData = new FormData(ev.target);
+        form.classList.add("not-active");
 
         let xhr = new XMLHttpRequest();
 
@@ -50,6 +51,8 @@ const validateForms = (selector, rules, afterSend) => {
                 afterSend();
             }
             console.log('Отправлено');
+            form.classList.remove("not-active");
+            form.querySelector('.form__btn-message').classList.add("form__btn-message--active");
             }
         }
         }
@@ -109,21 +112,13 @@ const rules = [
         }
         ]
     },
-    ];
+];
 
-    const afterForm = () => {
-        console.log('Произошла отправка');
-        sendAnimation();
-    };
-    
-    validateForms('.contact-us__form', rules, afterForm);
+const afterForm = () => {
+    console.log('Произошла отправка');
+};
 
-
-// Анимация отправки сообщения
-const sendAnimation = () => {
-    document.querySelector('.form__btn-message').classList.add("form__btn-message--active");
-    document.querySelector('.animation-form').classList.add("animation-form--active");
-}
+validateForms('.contact-us__form', rules, afterForm);
 
 
 // Меню бургер
